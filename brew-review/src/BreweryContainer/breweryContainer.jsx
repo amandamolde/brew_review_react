@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import BreweryList from '../BreweryList/breweryList';
+import CreateBrewery from '../CreateBrewery/createBrewery';
 
 class BreweryContainer extends Component {
     constructor() {
@@ -25,18 +27,18 @@ class BreweryContainer extends Component {
         }).catch((err) => {
             console.log(err);
         });
-        this.getReviews().then((reviews) => {
-            this.setState({ reviews: reviews })
-        }).catch((err) => {
-            console.log(err);
-        })
+        // this.getReviews().then((reviews) => {
+        //     this.setState({ reviews: reviews })
+        // }).catch((err) => {
+        //     console.log(err);
+        // })
     }
 
     // ============================== Breweries API Calls ==============================
 
     getBreweries = async () => {
 
-        const breweries = await fetch('http://localhost:8000/api/breweries');
+        const breweries = await fetch('http://localhost:8000/api/breweries/');
         const breweriesJson = await breweries.json();
         return breweriesJson;
     }
@@ -45,7 +47,7 @@ class BreweryContainer extends Component {
         e.preventDefault();
         
         try {
-            const createdBrewery = await fetch('http://localhost:8000/api/breweries', {
+            const createdBrewery = await fetch('http://localhost:8000/api/breweries/', {
                 method: 'POST',
                 body: JSON.stringify(brewery),
                 headers: {
@@ -127,15 +129,15 @@ class BreweryContainer extends Component {
     render() {
         return (
             <div>
-                <Breweries 
+                <BreweryList 
                     breweries={this.state.breweries}
                     deleteBrewery={this.deleteBrewery}
                     showModal={this.showModal}
                 />
-                
+
                 <CreateBrewery addBrewery={this.addBrewery} />
 
-                {this.state.showEdit ? <EditBrewery closeAndEdit={this.closeAndEdit} handleFormChange={this.handleFormChange} breweryToEdit={this.state.breweryToEdit}/> : null}
+                {/* {this.state.showEdit ? <EditBrewery closeAndEdit={this.closeAndEdit} handleFormChange={this.handleFormChange} breweryToEdit={this.state.breweryToEdit}/> : null} */}
             </div>
 
         )
