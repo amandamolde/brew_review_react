@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BreweryList from '../BreweryList/breweryList';
 import CreateBrewery from '../CreateBrewery/createBrewery';
+import EditBrewery from '../EditBrewery/editBrewery';
 
 class BreweryContainer extends Component {
     constructor() {
@@ -90,10 +91,12 @@ class BreweryContainer extends Component {
         });
     }
 
-    closeAndEdit = async (breweryId) => {
+    closeAndEdit = async (e) => {
+        e.preventDefault();
 
         try {
-            const editResponse = await fetch('http://localhost:8000/api/breweries/' + breweryId, {
+            console.log('trying to edit brewery!!!');
+            const editResponse = await fetch('http://localhost:8000/api/breweries/' + this.state.editBreweryId, {
                 method: 'PUT',
                 body: JSON.stringify(this.state.breweryToEdit),
                 headers: {
@@ -102,7 +105,7 @@ class BreweryContainer extends Component {
             });
 
             const editResponseJson = await editResponse.json();
-            const editedBreweryArray = this.state.posts.map((brewery) => {
+            const editedBreweryArray = this.state.breweries.map((brewery) => {
 
                 if (brewery.id === this.state.editBreweryId) {
                     brewery.name = editResponseJson.name;
@@ -141,7 +144,7 @@ class BreweryContainer extends Component {
 
                 <CreateBrewery addBrewery={this.addBrewery} />
 
-                {/* {this.state.showEdit ? <EditBrewery closeAndEdit={this.closeAndEdit} handleFormChange={this.handleFormChange} breweryToEdit={this.state.breweryToEdit}/> : null} */}
+                {this.state.showEdit ? <EditBrewery closeAndEdit={this.closeAndEdit} handleFormChange={this.handleFormChange} breweryToEdit={this.state.breweryToEdit}/> : null}
             </div>
 
         )
