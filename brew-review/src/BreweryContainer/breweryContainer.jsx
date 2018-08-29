@@ -7,6 +7,15 @@ class BreweryContainer extends Component {
         this.state = {
             breweries: [],
             reviews: [],
+            showEdit: false,
+            editBreweryId: null,
+            breweryToEdit: {
+                name: '',
+                city: '',
+                state: '',
+                description: '',
+                website_url: '',
+            },
         }
     }
     
@@ -29,7 +38,7 @@ class BreweryContainer extends Component {
 
         const breweries = await fetch('http://localhost:8000/api/breweries');
         const breweriesJson = await breweries.json();
-        return breweriesJson
+        return breweriesJson;
     }
 
     addBrewery = async (brewery, e) => {
@@ -46,6 +55,71 @@ class BreweryContainer extends Component {
 
             const createdBreweryJson = await createdBrewery.json();
             console.log(createdBreweryJson, ' this is createdBreweryJson');
+            this.setState({breweries: [...this.state.breweries, createdBreweryJson]});
+        } catch(err) {
+            console.log(err);
         }
+    }
+    
+    deleteBrewery = async (id, e) => {
+        e.preventDefault();
+        console.log('deleteBrewery function is being called, this is the id: ', id);
+        try {
+            const deleteBrewery = await fetch('http://localhost:8000/api/breweries/' + id, {
+                method: 'DELETE',
+            });
+
+            this.setState({ breweries: this.state.breweries.filter((brewery, i) => brewery.id !== id) });
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    showModal = (id, e) => {
+        const breweryToEdit = this.state.breweries.find((brewery) => brewery.id === id)
+        this.setState({
+            showEdit: true,
+            editBreweryId: id,
+            breweryToEdit: breweryToEdit,
+        });
+    }
+
+    closeAndEdit = async (breweryId) => {
+
+        try {
+            const editResponse = await fetch('http://localhost:8000/api/breweries/' + breweryId, {
+                method: 'PUT',
+                body: JSON.stringify(this.state.breweryToEdit),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const editResponseJson = await editResponse.json();
+            const editedBreweryArray = this.state.posts.map((brewery) => {
+
+                if (brewery.id === this.state.editBreweryId) {
+                    brewery.name = editResponseJson.name;
+                    brewery.city = editResponseJson.city;
+                    brewery.state = editResponseJson.state;
+                    brewery.description = editResponseJson.description;
+                    brewery.website_url = editResponseJson.website_url;
+                }
+                return brewery;
+            });
+
+            this.setState({
+                breweries: editedBreweryArray,
+                showEdit: false,
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    handleFormChange = (e) => {
+
+        this.setState({
+            breweryToEdit: { ...this.state.breweryToEdit, [e.target.name]: e.target.value }
+        })
     }
 }
