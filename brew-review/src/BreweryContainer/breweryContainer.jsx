@@ -19,6 +19,16 @@ class BreweryContainer extends Component {
                 description: '',
                 website_url: '',
             },
+            showReviewEdit: false,
+            editReviewId: null,
+            reviewToEdit: {
+                brewery: '',
+                atmosphere: '',
+                beer_tenders: '',
+                beer_selection: '',
+                notes: '',
+                photo: '',
+            }
         }
     }
     
@@ -129,6 +139,104 @@ class BreweryContainer extends Component {
 
         this.setState({
             breweryToEdit: { ...this.state.breweryToEdit, [e.target.name]: e.target.value }
+        });
+    }
+
+    // ============================== Reviews API Calls ==============================
+
+    getReviews = async () => {
+
+        const reviews = await fetch('http://localhost:8000/api/reviews/');
+        const reviewsJson = await reviews.json();
+        return reviewsJson;
+    }
+
+    addReview = async(review, e) => {
+        e.preventDefault();
+
+        try {
+            const createdReview = await fetch('http://localhost:8000/api/reviews/', {
+                method: 'POST',
+                body: JSON.stringify(review),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const createdReviewJson = await createdReview.json();
+            console.log(createdReviewJson, ' this is createdReviewJson');
+            this.setState({reviews: [...this.state.reviews, createdReviewJson]});
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
+    deleteReview = async (id, e) => {
+        e.preventDefault();
+        console.log('deleteReview function is being called, this is the id: ', id);
+        try {
+            const deleteReview = await fetch('http://localhost:8000/api/reviews/' + id, {
+                method: 'DELETE',
+            });
+
+            if (deleteReview.status === 204) {
+                this.setState({reviews: this.state.reviews.filter((review, i) => review.id !== id) });
+            } else {
+                console.log('error when deleting review');
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    showReviewModal = (id, e) => {
+        const reviewToEdit = this.state.reviews.find((review) => review.id === id)
+        this.setState({
+            showEdit: true,
+            editReviewId: id,
+            reviewToEdit: reviewToEdit,
+        });
+    }
+
+    closeAndEditReview = async (e) => {
+        e.preventDefault();
+
+        try {
+            console.log('trying to edit review!!!');
+            const editReview = await fetch('http://localhost:8000/api/reviews/' + this.state.editReviewId, {
+                method: 'PUT',
+                body: JSON.stringify(this.state.reviewToEdit),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const editReviewJson = await editReview.json();
+            const editedReviewArray = this.state.reviews.map((review) => {
+
+                if (review.id === this.state.editReviewId) {
+                    review.atmosphere = editReviewJson.atmosphere;
+                    review.beer_tenders = editReviewJson.beer_tenders;
+                    review.beer_selection = editReviewJson.beer_selection;
+                    review.notes = editReviewJson.notes;
+                    review.photo = editReviewJson.photo;
+                }
+                return review;
+            });
+
+            this.setState({
+                reviews: editedReviewArray,
+                showReviewEdit: false,
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    handleFormChange = (e) => {
+
+        this.setState({
+            reviewToEdit: { ...this.state.reviewToEdit, [e.target.name]: e.target.value }
         });
     }
 
