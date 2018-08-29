@@ -71,7 +71,11 @@ class BreweryContainer extends Component {
                 method: 'DELETE',
             });
 
-            this.setState({ breweries: this.state.breweries.filter((brewery, i) => brewery.id !== id) });
+            if (deleteBrewery.status === 204) {
+                this.setState({ breweries: this.state.breweries.filter((brewery, i) => brewery.id !== id) });
+            } else {
+                console.log('error when deleting brewery');
+            }
         } catch (err) {
             console.log(err);
         }
