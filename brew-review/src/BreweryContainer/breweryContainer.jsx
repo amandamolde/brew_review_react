@@ -32,7 +32,7 @@ class BreweryContainer extends Component {
         })
     }
 
-    // =============== Breweries API Calls ===============
+    // ============================== Breweries API Calls ==============================
 
     getBreweries = async () => {
 
@@ -120,6 +120,26 @@ class BreweryContainer extends Component {
 
         this.setState({
             breweryToEdit: { ...this.state.breweryToEdit, [e.target.name]: e.target.value }
-        })
+        });
+    }
+
+    // ============================== What is Being Displayed on Page ==============================
+    render() {
+        return (
+            <div>
+                <Breweries 
+                    breweries={this.state.breweries}
+                    deleteBrewery={this.deleteBrewery}
+                    showModal={this.showModal}
+                />
+                
+                <CreateBrewery addBrewery={this.addBrewery} />
+
+                {this.state.showEdit ? <EditBrewery closeAndEdit={this.closeAndEdit} handleFormChange={this.handleFormChange} breweryToEdit={this.state.breweryToEdit}/> : null}
+            </div>
+
+        )
     }
 }
+
+export default BreweryContainer;
