@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import BreweryList from '../BreweryList/breweryList';
 import CreateBrewery from '../CreateBrewery/createBrewery';
 import EditBrewery from '../EditBrewery/editBrewery';
@@ -28,8 +29,16 @@ class BreweryContainer extends Component {
                 beer_selection: '',
                 notes: '',
                 photo: '',
-            }
+            },
+            addBreweryModal: false,
         }
+        this.addBreweryToggle = this.addBreweryToggle.bind(this);
+    }
+
+    addBreweryToggle () {
+        this.setState({
+            addBreweryModal: !this.state.addBreweryModal
+        });
     }
     
     componentDidMount() {
@@ -245,6 +254,18 @@ class BreweryContainer extends Component {
     render() {
         return (
             <div>
+                <div className="addBreweryBtn">
+                    <Button color="primary" onClick={this.addBreweryToggle}>ADD A BREWERY!</Button>
+                    <Modal isOpen={this.state.addBreweryModal} toggle={this.addBreweryToggle}>
+                        <ModalHeader toggle={this.addBreweryToggle}>Add a brewery below:</ModalHeader>
+                        <ModalBody>
+                            <CreateBrewery addBrewery={this.addBrewery} toggle={this.addBreweryToggle} />
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button color="secondary" onClick={this.addBreweryToggle}>Cancel</Button>
+                        </ModalFooter>
+                    </Modal>
+                </div>
                 <BreweryList 
                     breweries={this.state.breweries}
                     deleteBrewery={this.deleteBrewery}
@@ -258,7 +279,7 @@ class BreweryContainer extends Component {
                     reviewToEdit={this.state.reviewToEdit}
                 />
 
-                <CreateBrewery addBrewery={this.addBrewery} />
+                
 
                 {this.state.showEdit ? <EditBrewery closeAndEdit={this.closeAndEdit} handleFormChange={this.handleFormChange} breweryToEdit={this.state.breweryToEdit}/> : null}
             </div>
