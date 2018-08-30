@@ -266,10 +266,13 @@ class BreweryContainer extends Component {
                         </ModalFooter>
                     </Modal>
                 </div>
+
                 <BreweryList 
                     breweries={this.state.breweries}
                     deleteBrewery={this.deleteBrewery}
                     showModal={this.showModal}
+                    closeAndEdit={this.closeAndEdit}
+                    handleFormChange={this.handleFormChange}
                     reviews={this.state.reviews}
                     addReview={this.addReview}
                     deleteReview={this.deleteReview}
@@ -279,9 +282,7 @@ class BreweryContainer extends Component {
                     reviewToEdit={this.state.reviewToEdit}
                 />
 
-                
-
-                {this.state.showEdit ? <EditBrewery closeAndEdit={this.closeAndEdit} handleFormChange={this.handleFormChange} breweryToEdit={this.state.breweryToEdit}/> : null}
+                {/* {this.state.showEdit ? <EditBrewery closeAndEdit={this.closeAndEdit} handleFormChange={this.handleFormChange} breweryToEdit={this.state.breweryToEdit}/> : null} */}
             </div>
 
         )
