@@ -16,6 +16,7 @@ const ReviewList = (props) => {
                     <span>{review.beer_tenders}</span>
                     <span>{review.beer_selection}</span>
                     <p>{review.notes}</p>
+                    <img src={review.photo}/>
                     <button onClick={props.showReviewModal.bind(null, review.id)}>Edit Review</button>
                     <button onClick={props.deleteReview.bind(null, review.id)}>Delete Review</button>
                     <EditReview

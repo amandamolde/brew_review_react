@@ -219,6 +219,7 @@ class BreweryContainer extends Component {
                     review.beer_tenders = editReviewJson.beer_tenders;
                     review.beer_selection = editReviewJson.beer_selection;
                     review.notes = editReviewJson.notes;
+                    review.photo = editReviewJson.photo;
                 }
                 return review;
             });
