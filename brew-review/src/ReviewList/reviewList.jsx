@@ -11,7 +11,6 @@ const ReviewList = (props) => {
 
             return (
                 <li key={review.id}>
-                    <span>{review.name}</span>
                     <span>{review.atmosphere}</span>
                     <span>{review.beer_tenders}</span>
                     <span>{review.beer_selection}</span>

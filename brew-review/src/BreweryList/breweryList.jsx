@@ -1,5 +1,6 @@
 import React from 'react';
 import ReviewList from '../ReviewList/reviewList';
+import CreateReview from '../CreateReview/createReview';
 
 const BreweryList = (props) => {
 
@@ -21,6 +22,8 @@ const BreweryList = (props) => {
                     closeAndEditReview={props.closeAndEditReview}
                     handleReviewFormChange={props.handleReviewFormChange}
                 />
+
+                <CreateReview breweryId={'http://localhost:8000/api/breweries/' + brewery.id} addReview={props.addReview}/>
 
                 <button onClick={props.showModal.bind(null, brewery.id)}>Edit</button>
                 <button onClick={props.deleteBrewery.bind(null, brewery.id)}>Delete</button>
