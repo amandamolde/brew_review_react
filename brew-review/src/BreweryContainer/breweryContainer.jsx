@@ -38,11 +38,11 @@ class BreweryContainer extends Component {
         }).catch((err) => {
             console.log(err);
         });
-        // this.getReviews().then((reviews) => {
-        //     this.setState({ reviews: reviews })
-        // }).catch((err) => {
-        //     console.log(err);
-        // })
+        this.getReviews().then((reviews) => {
+            this.setState({ reviews: reviews })
+        }).catch((err) => {
+            console.log(err);
+        })
     }
 
     // ============================== Breweries API Calls ==============================
@@ -233,7 +233,7 @@ class BreweryContainer extends Component {
         }
     }
 
-    handleFormChange = (e) => {
+    handleReviewFormChange = (e) => {
 
         this.setState({
             reviewToEdit: { ...this.state.reviewToEdit, [e.target.name]: e.target.value }
@@ -248,6 +248,12 @@ class BreweryContainer extends Component {
                     breweries={this.state.breweries}
                     deleteBrewery={this.deleteBrewery}
                     showModal={this.showModal}
+                    reviews={this.state.reviews}
+                    addReview={this.addReview}
+                    deleteReview={this.deleteReview}
+                    showReviewModal={this.showReviewModal}
+                    closeAndEditReview={this.closeAndEditReview}
+                    handleReviewFormChange={this.handleReviewFormChange}
                 />
 
                 <CreateBrewery addBrewery={this.addBrewery} />
