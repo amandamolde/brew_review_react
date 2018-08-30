@@ -1,4 +1,5 @@
 import React from 'react';
+import EditReview from '../EditReview/editReview';
 
 const ReviewList = (props) => {
     console.log(props.breweryId, ' this is breweryID at ReviewList')
@@ -17,6 +18,11 @@ const ReviewList = (props) => {
                     <p>{review.notes}</p>
                     <button onClick={props.showReviewModal.bind(null, review.id)}>Edit</button>
                     <button onClick={props.deleteReview.bind(null, review.id)}>Delete</button>
+                    <EditReview
+                        closeAndEditReview={props.closeAndEditReview}
+                        handleReviewFormChange={props.handleReviewFormChange}
+                        reviewToEdit={props.reviewToEdit}
+                    />
                 </li>
             )
         }

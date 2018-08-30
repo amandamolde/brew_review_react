@@ -21,6 +21,7 @@ const BreweryList = (props) => {
                     showReviewModal={props.showReviewModal}
                     closeAndEditReview={props.closeAndEditReview}
                     handleReviewFormChange={props.handleReviewFormChange}
+                    reviewToEdit={props.reviewToEdit}
                 />
 
                 <CreateReview breweryId={'http://localhost:8000/api/breweries/' + brewery.id} addReview={props.addReview}/>
