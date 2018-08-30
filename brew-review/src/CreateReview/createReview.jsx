@@ -19,7 +19,7 @@ class CreateReview extends Component {
     }
 
     render() {
-        console.log(this.props, ' this is props on createReview');
+        // console.log(this.props, ' this is props on createReview');
         return (
             <form onSubmit={this.props.addReview.bind(this, this.state)}>
                 <label>

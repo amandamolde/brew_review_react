@@ -8,13 +8,16 @@ const BreweryList = (props) => {
 
     const breweryList = props.breweries.map((brewery, i) => {
         return (
-            <Col>
+            <Col key={brewery.id}>
 
-                <div className="breweryInfo" key={brewery.id}>
+                <div className="breweryInfo">
                     <div>
                         <span>{brewery.name}</span>
+                        <br/>
                         <span>{brewery.city}, {brewery.state}</span>
+                        <br/>
                         <span>{brewery.website_url}</span>
+                        <br/>
                         <p>{brewery.description}</p>
                     </div>
                     <br/><br/><br/>
@@ -37,11 +40,11 @@ const BreweryList = (props) => {
                     <br/>
                     <h4>Update/Delete Brewery</h4>
                     <div className="editBreweryBtn">
-                        <Button color="primary" onClick={props.deleteBrewery.bind(null, brewery.id)}>Edit Brewery</Button>
+                        <Button color="primary" onClick={props.showModal.bind(null, brewery.id)}>Edit Brewery</Button>
                         <Modal isOpen={props.editBreweryModal} toggle={props.editBreweryToggle}>
                             <ModalHeader toggle={props.editBreweryToggle}>Edit Brewery Information Below:</ModalHeader>
                             <ModalBody>
-                                <EditBrewery closeAndEdit={props.closeAndEdit} handleFormChange={props.handleFormChange} breweryToEdit={props.breweryToEdit}/>
+                                <EditBrewery closeAndEdit={props.closeAndEdit} handleFormChange={props.handleFormChange} breweryToEdit={props.breweryToEdit} editBreweryToggle={props.editBreweryToggle}/>
                             </ModalBody>
                             <ModalFooter>
                                 <Button color="secondary" onClick={props.editBreweryToggle}>Cancel</Button>

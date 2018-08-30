@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 
 const EditBrewery = (props) => {
     console.log(props, ' this is props at edit brewery');
@@ -26,7 +27,7 @@ const EditBrewery = (props) => {
                     Edit Website:
                     <input type="text" name="website_url" onChange={props.handleFormChange} value={props.breweryToEdit.website_url}/>
                 </label>
-                <input type="submit"/>
+                <Button type="submit" onClick={props.editBreweryToggle}>Edit Brewery</Button>
             </form>
         </div>
     )

@@ -41,7 +41,7 @@ class CreateBrewery extends Component {
                     Website:
                     <input type="text" name="website_url" onChange={this.updateBrewery}/>
                 </label>
-                <Button type="submit" onClick={this.props.toggle}>Submit</Button>
+                <Button type="submit" onClick={this.props.addBreweryToggle}>Submit</Button>
             </form>
         )
     }
