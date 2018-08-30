@@ -22,6 +22,18 @@ const BreweryList = (props) => {
                     </div>
                     <br/><br/><br/>
                     <h4>Reviews for {brewery.name}</h4>
+                    <div className="addReviewBtn">
+                        <Button color="primary" onClick={props.addReviewToggle}>Review {brewery.name}</Button>
+                        <Modal isOpen={props.addReviewModal} toggle={props.addReviewToggle}>
+                            <ModalHeader toggle={props.addReviewToggle}>Add a review of {brewery.name} below:</ModalHeader>
+                            <ModalBody>
+                                <CreateReview breweryId={'http://localhost:8000/api/breweries/' + brewery.id} addReview={props.addReview} addReviewModal={props.addReviewModal}/>
+                            </ModalBody>
+                            <ModalFooter>
+                                <Button color="secondary" onClick={props.addReviewToggle}>Cancel</Button>
+                            </ModalFooter>
+                        </Modal>
+                    </div>
                     <br/>
 
                     <ReviewList
@@ -34,9 +46,6 @@ const BreweryList = (props) => {
                         reviewToEdit={props.reviewToEdit}
                     />
 
-                    <div className="addReviewComponent">
-                        <CreateReview breweryId={'http://localhost:8000/api/breweries/' + brewery.id} addReview={props.addReview}/>
-                    </div>
                     <br/>
                     <h4>Update/Delete Brewery</h4>
                     <div className="editBreweryBtn">

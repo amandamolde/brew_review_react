@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 
 const EditReview = (props) => {
     console.log(props, ' this is props at edit review');
@@ -26,7 +27,7 @@ const EditReview = (props) => {
                     Edit Photo:
                     <input type="file" name="photo" onChange={props.handleReviewFormChange}/>
                 </label>
-                <input type="submit"/>
+                <Button type="submit" onClick={props.addReviewToggle}>Edit Review</Button>
             </form>
         </div>
     )
