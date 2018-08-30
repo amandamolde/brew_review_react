@@ -12,12 +12,9 @@ const BreweryList = (props) => {
 
                 <div className="breweryInfo">
                     <div>
-                        <span>{brewery.name}</span>
-                        <br/>
-                        <span>{brewery.city}, {brewery.state}</span>
-                        <br/>
-                        <span>{brewery.website_url}</span>
-                        <br/>
+                        <span>{brewery.name}</span><br/>
+                        <span>{brewery.city}, {brewery.state}</span><br/>
+                        <span>{brewery.website_url}</span><br/>
                         <p>{brewery.description}</p>
                     </div>
                     <br/><br/><br/>
@@ -27,7 +24,7 @@ const BreweryList = (props) => {
                         <Modal isOpen={props.addReviewModal} toggle={props.addReviewToggle}>
                             <ModalHeader toggle={props.addReviewToggle}>Add a review of {brewery.name} below:</ModalHeader>
                             <ModalBody>
-                                <CreateReview breweryId={'http://localhost:8000/api/breweries/' + brewery.id} addReview={props.addReview} addReviewModal={props.addReviewModal}/>
+                                <CreateReview breweryId={'http://localhost:8000/api/breweries/' + brewery.id} addReview={props.addReview} addReviewToggle={props.addReviewToggle}/>
                             </ModalBody>
                             <ModalFooter>
                                 <Button color="secondary" onClick={props.addReviewToggle}>Cancel</Button>
@@ -44,6 +41,8 @@ const BreweryList = (props) => {
                         closeAndEditReview={props.closeAndEditReview}
                         handleReviewFormChange={props.handleReviewFormChange}
                         reviewToEdit={props.reviewToEdit}
+                        editReviewModal={props.editReviewModal}
+                        editReviewToggle={props.editReviewToggle}
                     />
 
                     <br/>

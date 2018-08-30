@@ -32,10 +32,12 @@ class BreweryContainer extends Component {
             addBreweryModal: false,
             editBreweryModal: false,
             addReviewModal: false,
+            editReviewModal: false,
         }
         this.addBreweryToggle = this.addBreweryToggle.bind(this);
         this.editBreweryToggle = this.editBreweryToggle.bind(this);
         this.addReviewToggle = this.addReviewToggle.bind(this);
+        this.editReviewToggle = this.editReviewToggle.bind(this);
     }
 
     addBreweryToggle () {
@@ -53,6 +55,12 @@ class BreweryContainer extends Component {
     addReviewToggle () {
         this.setState({
             addReviewModal: !this.state.addReviewModal
+        });
+    }
+
+    editReviewToggle () {
+        this.setState({
+            editReviewModal: !this.state.editReviewModal
         });
     }
     
@@ -215,7 +223,7 @@ class BreweryContainer extends Component {
     }
 
     showReviewModal = (id, e) => {
-        this.addReviewToggle();
+        this.editReviewToggle();
         const reviewToEdit = this.state.reviews.find((review) => review.id === id)
         this.setState({
             showEdit: true,
@@ -302,6 +310,8 @@ class BreweryContainer extends Component {
                     reviewToEdit={this.state.reviewToEdit}
                     addReviewModal={this.state.addReviewModal}
                     addReviewToggle={this.addReviewToggle}
+                    editReviewModal={this.state.editReviewModal}
+                    editReviewToggle={this.editReviewToggle}
                 />
 
             </div>
