@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Jumbotron, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import BreweryList from '../BreweryList/breweryList';
 import CreateBrewery from '../CreateBrewery/createBrewery';
 
@@ -159,7 +159,8 @@ class BreweryContainer extends Component {
                 }
                 return brewery;
             });
-
+            console.log(editResponseJson, ' this is editResponseJson');
+            console.log(editedBreweryArray, ' this is editedReviewArray');
             this.setState({
                 breweries: editedBreweryArray,
                 showEdit: false,
@@ -279,17 +280,23 @@ class BreweryContainer extends Component {
     render() {
         return (
             <div>
-                <div className="addBreweryBtn">
-                    <Button color="primary" onClick={this.addBreweryToggle}>ADD A BREWERY!</Button>
-                    <Modal isOpen={this.state.addBreweryModal} toggle={this.addBreweryToggle}>
-                        <ModalHeader toggle={this.addBreweryToggle}>Add a brewery below:</ModalHeader>
-                        <ModalBody>
-                            <CreateBrewery addBrewery={this.addBrewery} addBreweryToggle={this.addBreweryToggle} />
-                        </ModalBody>
-                        <ModalFooter>
-                            <Button color="secondary" onClick={this.addBreweryToggle}>Cancel</Button>
-                        </ModalFooter>
-                    </Modal>
+                <div className="welcome">
+                    <Jumbotron>
+                        <h1>Welcome to Brew Review!</h1>
+                        <p></p>
+                        <div className="addBreweryBtn">
+                            <Button color="primary" onClick={this.addBreweryToggle}>ADD A BREWERY!</Button>
+                            <Modal isOpen={this.state.addBreweryModal} toggle={this.addBreweryToggle}>
+                                <ModalHeader toggle={this.addBreweryToggle}>Add a brewery below:</ModalHeader>
+                                <ModalBody>
+                                    <CreateBrewery addBrewery={this.addBrewery} addBreweryToggle={this.addBreweryToggle} />
+                                </ModalBody>
+                                <ModalFooter>
+                                    <Button color="secondary" onClick={this.addBreweryToggle}>Cancel</Button>
+                                </ModalFooter>
+                            </Modal>
+                        </div>
+                    </Jumbotron>
                 </div>
 
                 <BreweryList 

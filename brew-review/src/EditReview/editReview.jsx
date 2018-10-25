@@ -25,7 +25,7 @@ const EditReview = (props) => {
                 </label>
                 <label>
                     Edit Photo:
-                    <input type="file" name="photo" onChange={props.handleReviewFormChange}/>
+                    <input type="text" name="photo" onChange={props.handleReviewFormChange}/>
                 </label>
                 <Button type="submit" onClick={props.editReviewToggle}>Edit Review</Button>
             </form>

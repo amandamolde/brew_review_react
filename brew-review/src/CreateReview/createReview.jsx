@@ -11,6 +11,7 @@ class CreateReview extends Component {
             beer_tenders: '',
             beer_selection: '',
             notes: '',
+            photo: '',
         }
     }
     updateReview = (e) => {
@@ -38,6 +39,10 @@ class CreateReview extends Component {
                 <label>
                     Notes:
                     <input type="text" name="notes" onChange={this.updateReview}/>
+                </label>
+                <label>
+                    Photo:
+                    <input type="text" name="photo" onChange={this.updateReview}/>
                 </label>
                 <Button type="submit" onClick={this.props.addReviewToggle}>Add Review</Button>
             </form>
