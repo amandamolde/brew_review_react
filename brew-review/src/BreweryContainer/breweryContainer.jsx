@@ -282,8 +282,9 @@ class BreweryContainer extends Component {
             <div>
                 <div className="welcome">
                     <Jumbotron>
+                        <img src={require('./logo.png')}/>
                         <h1>Welcome to Brew Review!</h1>
-                        <p></p>
+                        <p>Review and discover breweries</p>
                         <div className="addBreweryBtn">
                             <Button color="primary" onClick={this.addBreweryToggle}>ADD A BREWERY!</Button>
                             <Modal isOpen={this.state.addBreweryModal} toggle={this.addBreweryToggle}>
@@ -291,9 +292,6 @@ class BreweryContainer extends Component {
                                 <ModalBody>
                                     <CreateBrewery addBrewery={this.addBrewery} addBreweryToggle={this.addBreweryToggle} />
                                 </ModalBody>
-                                <ModalFooter>
-                                    <Button color="secondary" onClick={this.addBreweryToggle}>Cancel</Button>
-                                </ModalFooter>
                             </Modal>
                         </div>
                     </Jumbotron>

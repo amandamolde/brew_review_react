@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
+import { Button, ModalFooter } from 'reactstrap';
 
 class CreateBrewery extends Component {
     constructor() {
@@ -41,7 +41,10 @@ class CreateBrewery extends Component {
                     Website:
                     <input type="text" name="website_url" onChange={this.updateBrewery}/>
                 </label>
-                <Button type="submit" onClick={this.props.addBreweryToggle}>Submit</Button>
+                <ModalFooter>
+                    <Button type="submit" onClick={this.props.addBreweryToggle}>Submit</Button>
+                    <Button color="secondary" onClick={this.props.addBreweryToggle}>Cancel</Button>
+                </ModalFooter>
             </form>
         )
     }
