@@ -1,8 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Button, Modal, ModalHeader, ModalBody, 
         Card, CardImg, CardTitle, CardText, CardDeck, CardSubtitle, 
-        CardBody, CardLink, CardHeader, CardFooter, ButtonDropdown,
-        DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+        CardBody, CardLink, CardHeader, CardFooter, } from 'reactstrap';
 import ReviewList from '../ReviewList/reviewList';
 import CreateReview from '../CreateReview/createReview';
 import EditBrewery from '../EditBrewery/editBrewery';
@@ -15,13 +14,7 @@ const BreweryList = (props) => {
             <CardDeck>
                 <Card key={brewery.id}>
                     <CardHeader>
-                        <ButtonDropdown isOpen={props.dropdownOpen} toggle={props.dropdownToggle}>
-                            <DropdownToggle caret>Options</DropdownToggle>
-                            <DropdownMenu>
-                                <DropdownItem>Edit Brewery</DropdownItem>
-                                <DropdownItem>Delete Brewery</DropdownItem>
-                            </DropdownMenu>
-                        </ButtonDropdown>
+
                     </CardHeader>
                     <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
                     <CardBody>

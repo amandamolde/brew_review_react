@@ -33,13 +33,11 @@ class BreweryContainer extends Component {
             editBreweryModal: false,
             addReviewModal: false,
             editReviewModal: false,
-            dropdownOpen: false,
         }
         this.addBreweryToggle = this.addBreweryToggle.bind(this);
         this.editBreweryToggle = this.editBreweryToggle.bind(this);
         this.addReviewToggle = this.addReviewToggle.bind(this);
         this.editReviewToggle = this.editReviewToggle.bind(this);
-        this.dropdownToggle = this.dropdownToggle.bind(this);
     }
 
     addBreweryToggle () {
@@ -63,12 +61,6 @@ class BreweryContainer extends Component {
     editReviewToggle () {
         this.setState({
             editReviewModal: !this.state.editReviewModal
-        });
-    }
-
-    dropdownToggle () {
-        this.setState({
-            dropdownOpen: !this.state.dropdownOpen
         });
     }
     
@@ -325,8 +317,6 @@ class BreweryContainer extends Component {
                     addReviewToggle={this.addReviewToggle}
                     editReviewModal={this.state.editReviewModal}
                     editReviewToggle={this.editReviewToggle}
-                    dropdownOpen={this.state.dropdownOpen}
-                    dropdownToggle={this.dropdownToggle}
                 />
 
             </div>
