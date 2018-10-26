@@ -50,13 +50,10 @@ const BreweryList = (props) => {
                     <div className="editBreweryBtn">
                         <Button color="primary" onClick={props.showModal.bind(null, brewery.id)}>Edit Brewery</Button>
                         <Modal isOpen={props.editBreweryModal} toggle={props.editBreweryToggle}>
-                            <ModalHeader toggle={props.editBreweryToggle}>Edit Brewery Information Below:</ModalHeader>
+                            <ModalHeader toggle={props.editBreweryToggle}>Edit brewery information:</ModalHeader>
                             <ModalBody>
                                 <EditBrewery closeAndEdit={props.closeAndEdit} handleFormChange={props.handleFormChange} breweryToEdit={props.breweryToEdit} editBreweryToggle={props.editBreweryToggle}/>
                             </ModalBody>
-                            <ModalFooter>
-                                <Button color="secondary" onClick={props.editBreweryToggle}>Cancel</Button>
-                            </ModalFooter>
                         </Modal>
                     </div>
 
