@@ -288,7 +288,7 @@ class BreweryContainer extends Component {
                         <div className="addBreweryBtn">
                             <Button color="primary" onClick={this.addBreweryToggle}>ADD A BREWERY!</Button>
                             <Modal isOpen={this.state.addBreweryModal} toggle={this.addBreweryToggle}>
-                                <ModalHeader toggle={this.addBreweryToggle}>Add a brewery below:</ModalHeader>
+                                <ModalHeader toggle={this.addBreweryToggle}>Add a brewery:</ModalHeader>
                                 <ModalBody>
                                     <CreateBrewery addBrewery={this.addBrewery} addBreweryToggle={this.addBreweryToggle} />
                                 </ModalBody>
