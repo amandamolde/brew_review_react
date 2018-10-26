@@ -11,10 +11,16 @@ const BreweryList = (props) => {
     const breweryList = props.breweries.map((brewery, i) => {
         return (
             <div className="breweryInfo">
-            <CardDeck>
                 <Card key={brewery.id}>
                     <CardHeader>
-
+                        <Button color="link" onClick={props.showModal.bind(null, brewery.id)}>Edit</Button>
+                        <Button color="link" onClick={props.deleteBrewery.bind(null, brewery.id)}>Delete</Button>
+                        <Modal isOpen={props.editBreweryModal} toggle={props.editBreweryToggle}>
+                            <ModalHeader toggle={props.editBreweryToggle}>Edit brewery information:</ModalHeader>
+                            <ModalBody>
+                                <EditBrewery closeAndEdit={props.closeAndEdit} handleFormChange={props.handleFormChange} breweryToEdit={props.breweryToEdit} editBreweryToggle={props.editBreweryToggle}/>
+                            </ModalBody>
+                        </Modal>
                     </CardHeader>
                     <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
                     <CardBody>
@@ -26,17 +32,8 @@ const BreweryList = (props) => {
                         <Button>Check out the Reviews!</Button>
                     </CardBody>
                     <CardFooter>
-                        <Button onClick={props.showModal.bind(null, brewery.id)}>Edit</Button>
-                        <Button onClick={props.deleteBrewery.bind(null, brewery.id)}>Delete</Button>
-                        <Modal isOpen={props.editBreweryModal} toggle={props.editBreweryToggle}>
-                            <ModalHeader toggle={props.editBreweryToggle}>Edit brewery information:</ModalHeader>
-                            <ModalBody>
-                                <EditBrewery closeAndEdit={props.closeAndEdit} handleFormChange={props.handleFormChange} breweryToEdit={props.breweryToEdit} editBreweryToggle={props.editBreweryToggle}/>
-                            </ModalBody>
-                        </Modal>
                     </CardFooter>
                 </Card>
-            </CardDeck>
                     <h4>Reviews for {brewery.name}</h4>
                     <div className="addReviewBtn">
                         <Button color="primary" onClick={props.addReviewToggle}>Review {brewery.name}</Button>
@@ -67,7 +64,9 @@ const BreweryList = (props) => {
     return (
         <Container>
             <Row>
-                {breweryList}
+                <CardDeck>
+                    {breweryList}
+                </CardDeck>
             </Row>
         </Container>
     )
