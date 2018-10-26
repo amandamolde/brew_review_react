@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, } from 'reactstrap';
+import { Container, Row, Col, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import ReviewList from '../ReviewList/reviewList';
 import CreateReview from '../CreateReview/createReview';
 import EditBrewery from '../EditBrewery/editBrewery';
@@ -22,13 +22,10 @@ const BreweryList = (props) => {
                     <div className="addReviewBtn">
                         <Button color="primary" onClick={props.addReviewToggle}>Review {brewery.name}</Button>
                         <Modal isOpen={props.addReviewModal} toggle={props.addReviewToggle}>
-                            <ModalHeader toggle={props.addReviewToggle}>Add a review of {brewery.name} below:</ModalHeader>
+                            <ModalHeader toggle={props.addReviewToggle}>Add a review of {brewery.name}:</ModalHeader>
                             <ModalBody>
                                 <CreateReview breweryId={'http://localhost:8000/api/breweries/' + brewery.id} addReview={props.addReview} addReviewToggle={props.addReviewToggle}/>
                             </ModalBody>
-                            <ModalFooter>
-                                <Button color="secondary" onClick={props.addReviewToggle}>Cancel</Button>
-                            </ModalFooter>
                         </Modal>
                     </div>
                     <br/>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Jumbotron, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Jumbotron, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import BreweryList from '../BreweryList/breweryList';
 import CreateBrewery from '../CreateBrewery/createBrewery';
 
@@ -282,7 +282,7 @@ class BreweryContainer extends Component {
             <div>
                 <div className="welcome">
                     <Jumbotron>
-                        <img src={require('./logo.png')}/>
+                        <img alt="logo" src={require('./logo.png')}/>
                         <h1>Welcome to Brew Review!</h1>
                         <p>Review and discover breweries</p>
                         <div className="addBreweryBtn">

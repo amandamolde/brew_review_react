@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
+import { Button, ModalFooter, Form, FormGroup, FormText, Label, Input } from 'reactstrap';
 
 class CreateReview extends Component {
     constructor() {
@@ -23,29 +23,35 @@ class CreateReview extends Component {
     render() {
         // console.log(this.props, ' this is props on createReview');
         return (
-            <form onSubmit={this.props.addReview.bind(this, this.state)}>
-                <label>
-                    Atmosphere:
-                    <input type="text" name="atmosphere" onChange={this.updateReview}/>
-                </label>
-                <label>
-                    Beer Tenders:
-                    <input type="text" name="beer_tenders" onChange={this.updateReview}/>
-                </label>
-                <label>
-                    Beer Selection:
-                    <input type="text" name="beer_selection" onChange={this.updateReview}/>
-                </label>
-                <label>
-                    Notes:
-                    <input type="text" name="notes" onChange={this.updateReview}/>
-                </label>
-                <label>
-                    Photo:
-                    <input type="text" name="photo" onChange={this.updateReview}/>
-                </label>
-                <Button type="submit" onClick={this.props.addReviewToggle}>Add Review</Button>
-            </form>
+            <Form onSubmit={this.props.addReview.bind(this, this.state)}>
+                <FormGroup>
+                    <Label>Atmosphere</Label>
+                    <Input type="text" name="atmosphere" onChange={this.updateReview}/>
+                    <FormText>Required</FormText>
+                </FormGroup>
+                <FormGroup>
+                    <Label>Beer Tenders</Label>
+                    <Input type="text" name="beer_tenders" onChange={this.updateReview}/>
+                    <FormText>Required</FormText>
+                </FormGroup>
+                <FormGroup>
+                    <Label>Beer Selection</Label>
+                    <Input type="text" name="beer_selection" onChange={this.updateReview}/>
+                    <FormText>Required</FormText>
+                </FormGroup>
+                <FormGroup>
+                    <Label>Notes</Label>
+                    <Input type="textarea" name="notes" onChange={this.updateReview}/>
+                </FormGroup>
+                <FormGroup>
+                    <Label>Photo</Label>
+                    <Input type="text" name="photo" onChange={this.updateReview}/>
+                </FormGroup>
+                <ModalFooter>
+                    <Button type="submit" onClick={this.props.addReviewToggle}>Submit</Button>
+                    <Button color="secondary" onClick={this.props.addReviewToggle}>Cancel</Button>
+                </ModalFooter>
+            </Form>
         )
     }
 }
