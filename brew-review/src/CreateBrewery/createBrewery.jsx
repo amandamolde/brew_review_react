@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, ModalFooter, Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, ModalFooter, Col, Row, Form, FormGroup, FormText, Label, Input } from 'reactstrap';
 
 class CreateBrewery extends Component {
     constructor() {
@@ -24,18 +24,21 @@ class CreateBrewery extends Component {
                 <FormGroup>
                     <Label>Name</Label>
                     <Input type="text" name="name" onChange={this.updateBrewery}/>
+                    <FormText>Required</FormText>
                 </FormGroup>
                 <Row>
                     <Col md={8}>
                         <FormGroup>
                             <Label>City</Label>
                             <Input type="text" name="city" onChange={this.updateBrewery}/>
+                            <FormText>Required</FormText>
                         </FormGroup>
                     </Col>
                     <Col md={4}>
                         <FormGroup>
                             <Label>State</Label>
                             <Input type="text" name="state" onChange={this.updateBrewery}/>
+                            <FormText>Required</FormText>
                         </FormGroup>
                     </Col>
                 </Row>

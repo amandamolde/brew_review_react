@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ModalFooter, Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, ModalFooter, Col, Row, Form, FormGroup, FormText, Label, Input } from 'reactstrap';
 
 const EditBrewery = (props) => {
     console.log(props, ' this is props at edit brewery');
@@ -9,18 +9,21 @@ const EditBrewery = (props) => {
                 <FormGroup>
                     <Label>Edit Name</Label>
                     <Input type="text" name="name" onChange={props.handleFormChange} value={props.breweryToEdit.name}/>
+                    <FormText>Required</FormText>
                 </FormGroup>
                 <Row>
                     <Col md={8}>
                         <FormGroup>
                             <Label>Edit City</Label>
                             <Input type="text" name="city" onChange={props.handleFormChange} value={props.breweryToEdit.city}/>
+                            <FormText>Required</FormText>
                         </FormGroup>
                     </Col>
                     <Col md={4}>
                         <FormGroup>
                             <Label>Edit State</Label>
                             <Input type="text" name="state" onChange={props.handleFormChange} value={props.breweryToEdit.state}/>
+                            <FormText>Required</FormText>
                         </FormGroup>
                     </Col>
                 </Row>
