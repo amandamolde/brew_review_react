@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Container, Row, Col, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import EditReview from '../EditReview/editReview';
 
 const ReviewList = (props) => {
@@ -23,7 +23,7 @@ const ReviewList = (props) => {
                     <div className="editReviewBtn">
                         <Button color="primary" onClick={props.showReviewModal.bind(null, review.id)}>Edit Review</Button>
                         <Modal isOpen={props.editReviewModal} toggle={props.editReviewToggle}>
-                            <ModalHeader toggle={props.editReviewToggle}>Edit Review Below:</ModalHeader>
+                            <ModalHeader toggle={props.editReviewToggle}>Edit review:</ModalHeader>
                             <ModalBody>
                                 <EditReview
                                     closeAndEditReview={props.closeAndEditReview}
@@ -32,9 +32,6 @@ const ReviewList = (props) => {
                                     editReviewToggle={props.editReviewToggle}
                                 />
                             </ModalBody>
-                            <ModalFooter>
-                                <Button color="secondary" onClick={props.editReviewToggle}>Cancel</Button>
-                            </ModalFooter>
                         </Modal>
                     </div>
                     <Button color="danger" onClick={props.deleteReview.bind(null, review.id)}>Delete Review</Button>
