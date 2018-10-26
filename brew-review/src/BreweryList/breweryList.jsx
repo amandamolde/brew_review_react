@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { Card, CardImg, CardTitle, CardText, CardDeck, CardSubtitle, CardBody, CardLink, CardFooter } from 'reactstrap';
 import ReviewList from '../ReviewList/reviewList';
 import CreateReview from '../CreateReview/createReview';
 import EditBrewery from '../EditBrewery/editBrewery';
@@ -8,16 +9,30 @@ const BreweryList = (props) => {
 
     const breweryList = props.breweries.map((brewery, i) => {
         return (
-            <Col key={brewery.id}>
-
-                <div className="breweryInfo">
-                    <div>
-                        <span>{brewery.name}</span><br/>
-                        <span>{brewery.city}, {brewery.state}</span><br/>
-                        <span>{brewery.website_url}</span><br/>
-                        <p>{brewery.description}</p>
-                    </div>
-                    <br/><br/><br/>
+            <div className="breweryInfo">
+            <CardDeck>
+                <Card key={brewery.id}>
+                    <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
+                    <CardBody>
+                        <CardTitle>{brewery.name}</CardTitle>
+                        <CardSubtitle>{brewery.city}, {brewery.state}</CardSubtitle>
+                        <CardLink href={brewery.website_url}>Website</CardLink>
+                        <hr/>
+                        <CardText>{brewery.description}</CardText>
+                        <Button>Check out the Reviews!</Button>
+                    </CardBody>
+                    <CardFooter>
+                        <Button onClick={props.showModal.bind(null, brewery.id)}>Edit</Button>
+                        <Button onClick={props.deleteBrewery.bind(null, brewery.id)}>Delete</Button>
+                        <Modal isOpen={props.editBreweryModal} toggle={props.editBreweryToggle}>
+                            <ModalHeader toggle={props.editBreweryToggle}>Edit brewery information:</ModalHeader>
+                            <ModalBody>
+                                <EditBrewery closeAndEdit={props.closeAndEdit} handleFormChange={props.handleFormChange} breweryToEdit={props.breweryToEdit} editBreweryToggle={props.editBreweryToggle}/>
+                            </ModalBody>
+                        </Modal>
+                    </CardFooter>
+                </Card>
+            </CardDeck>
                     <h4>Reviews for {brewery.name}</h4>
                     <div className="addReviewBtn">
                         <Button color="primary" onClick={props.addReviewToggle}>Review {brewery.name}</Button>
@@ -41,22 +56,7 @@ const BreweryList = (props) => {
                         editReviewModal={props.editReviewModal}
                         editReviewToggle={props.editReviewToggle}
                     />
-
-                    <br/>
-                    <h4>Update/Delete Brewery</h4>
-                    <div className="editBreweryBtn">
-                        <Button color="primary" onClick={props.showModal.bind(null, brewery.id)}>Edit Brewery</Button>
-                        <Modal isOpen={props.editBreweryModal} toggle={props.editBreweryToggle}>
-                            <ModalHeader toggle={props.editBreweryToggle}>Edit brewery information:</ModalHeader>
-                            <ModalBody>
-                                <EditBrewery closeAndEdit={props.closeAndEdit} handleFormChange={props.handleFormChange} breweryToEdit={props.breweryToEdit} editBreweryToggle={props.editBreweryToggle}/>
-                            </ModalBody>
-                        </Modal>
-                    </div>
-
-                    <Button color="danger" onClick={props.deleteBrewery.bind(null, brewery.id)}>Delete Brewery</Button>
-                </div>
-            </Col>
+            </div>
         )
     });
 
