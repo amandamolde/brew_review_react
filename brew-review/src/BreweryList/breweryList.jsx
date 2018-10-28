@@ -10,7 +10,7 @@ const BreweryList = (props) => {
 
     const breweryList = props.breweries.map((brewery, i) => {
         return (
-            <div className="breweryInfo">
+            <Col sm={6} md={4} className="breweryInfo">
                 <Card key={brewery.id}>
                     <CardHeader>
                         <Button color="link" onClick={props.showModal.bind(null, brewery.id)}>Edit</Button>
@@ -54,7 +54,7 @@ const BreweryList = (props) => {
                         />
                     </CardFooter>
                 </Card>
-            </div>
+            </Col>
         )
     });
 
