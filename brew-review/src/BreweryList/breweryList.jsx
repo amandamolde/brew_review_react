@@ -36,11 +36,12 @@ const BreweryList = (props) => {
                 </Card>
                     <h4>Reviews for {brewery.name}</h4>
                     <div className="addReviewBtn">
-                        <Button color="primary" onClick={props.addReviewToggle}>Review {brewery.name}</Button>
+                        <Button color="primary" onClick={() => props.addReviewToggle(brewery)}>Review {brewery.name}</Button>
                         <Modal isOpen={props.addReviewModal} toggle={props.addReviewToggle}>
-                            <ModalHeader toggle={props.addReviewToggle}>Add a review of {brewery.name}:</ModalHeader>
+                            <ModalHeader toggle={props.addReviewToggle}>Add a review of {props.breweryToReviewName}:</ModalHeader>
                             <ModalBody>
-                                <CreateReview breweryId={'http://localhost:8000/api/breweries/' + brewery.id} addReview={props.addReview} addReviewToggle={props.addReviewToggle}/>
+                                {/* <CreateReview breweryId={'http://localhost:8000/api/breweries/' + brewery.id} addReview={props.addReview} addReviewToggle={props.addReviewToggle}/> */}
+                                <CreateReview breweryId={'http://localhost:8000/api/breweries/' + props.breweryToReviewId} addReview={props.addReview} addReviewToggle={props.addReviewToggle}/>
                             </ModalBody>
                         </Modal>
                     </div>

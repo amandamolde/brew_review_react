@@ -33,6 +33,8 @@ class BreweryContainer extends Component {
             editBreweryModal: false,
             addReviewModal: false,
             editReviewModal: false,
+            breweryToReviewId: null,
+            breweryToReviewName: '',
         }
         this.addBreweryToggle = this.addBreweryToggle.bind(this);
         this.editBreweryToggle = this.editBreweryToggle.bind(this);
@@ -52,9 +54,11 @@ class BreweryContainer extends Component {
         });
     }
 
-    addReviewToggle () {
+    addReviewToggle (brewery) {
         this.setState({
-            addReviewModal: !this.state.addReviewModal
+            addReviewModal: !this.state.addReviewModal,
+            breweryToReviewId: brewery.id,
+            breweryToReviewName: brewery.name
         });
     }
 
@@ -317,6 +321,8 @@ class BreweryContainer extends Component {
                     addReviewToggle={this.addReviewToggle}
                     editReviewModal={this.state.editReviewModal}
                     editReviewToggle={this.editReviewToggle}
+                    breweryToReviewId={this.state.breweryToReviewId}
+                    breweryToReviewName={this.state.breweryToReviewName}
                 />
 
             </div>
