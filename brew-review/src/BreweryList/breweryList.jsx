@@ -1,7 +1,8 @@
 import React from 'react';
 import { Container, Row, Col, Button, Modal, ModalHeader, ModalBody, 
         Card, CardImg, CardTitle, CardText, CardColumns, CardSubtitle, 
-        CardBody, CardLink, CardHeader, CardFooter, } from 'reactstrap';
+        CardBody, CardLink, CardHeader, CardFooter, Collapse,
+         } from 'reactstrap';
 import ReviewList from '../ReviewList/reviewList';
 import CreateReview from '../CreateReview/createReview';
 import EditBrewery from '../EditBrewery/editBrewery';
@@ -30,7 +31,7 @@ const BreweryList = (props) => {
                         <hr/>
                         <CardText>{brewery.description}</CardText>
                         <hr/>
-                        <Button color="link">Check out the Reviews!</Button>
+                        <Button color="link" onClick={props.toggleCollapse}>Check out the Reviews!</Button>
                             <Button color="link" onClick={() => props.addReviewToggle(brewery)}>Add a Review</Button>
                             <Modal isOpen={props.addReviewModal} toggle={props.addReviewToggle}>
                                 <ModalHeader toggle={props.addReviewToggle}>Add a review of {props.breweryToReviewName}:</ModalHeader>
@@ -40,17 +41,19 @@ const BreweryList = (props) => {
                             </Modal>
                     </CardBody>
                     <CardFooter>
-                        <ReviewList
-                            breweryId={brewery.id}
-                            reviews={props.reviews}
-                            deleteReview={props.deleteReview}
-                            showReviewModal={props.showReviewModal}
-                            closeAndEditReview={props.closeAndEditReview}
-                            handleReviewFormChange={props.handleReviewFormChange}
-                            reviewToEdit={props.reviewToEdit}
-                            editReviewModal={props.editReviewModal}
-                            editReviewToggle={props.editReviewToggle}
-                        />
+                        <Collapse isOpen={props.collapse}>
+                            <ReviewList
+                                breweryId={brewery.id}
+                                reviews={props.reviews}
+                                deleteReview={props.deleteReview}
+                                showReviewModal={props.showReviewModal}
+                                closeAndEditReview={props.closeAndEditReview}
+                                handleReviewFormChange={props.handleReviewFormChange}
+                                reviewToEdit={props.reviewToEdit}
+                                editReviewModal={props.editReviewModal}
+                                editReviewToggle={props.editReviewToggle}
+                            />
+                        </Collapse>
                     </CardFooter>
                 </Card>
             </Col>
