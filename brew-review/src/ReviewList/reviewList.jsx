@@ -12,7 +12,7 @@ const ReviewList = (props) => {
         if (apiBreweryId === review.brewery) {
 
             return (
-                <Col key={review.id}>
+                <Row key={review.id}>
                     <span>Atmosphere: {review.atmosphere}</span><br/>
                     <span>Beer Tenders: {review.beer_tenders}</span><br/>
                     <span>Beer Selection: {review.beer_selection}</span><br/>
@@ -35,7 +35,7 @@ const ReviewList = (props) => {
                         </Modal>
                     </div>
                     <Button color="danger" onClick={props.deleteReview.bind(null, review.id)}>Delete Review</Button>
-                </Col>
+                </Row>
             )
         } else {
             return('')
@@ -44,9 +44,7 @@ const ReviewList = (props) => {
 
     return (
         <Container>
-            <Row>
                 {reviewList}
-            </Row>
         </Container>
     )
 };
