@@ -29,35 +29,31 @@ const BreweryList = (props) => {
                         <CardLink href={brewery.website_url}>Website</CardLink>
                         <hr/>
                         <CardText>{brewery.description}</CardText>
-                        <Button>Check out the Reviews!</Button>
+                        <Button>See Reviews</Button>
+                        <div className="addReviewBtn">
+                            <Button color="primary" onClick={() => props.addReviewToggle(brewery)}>Review {brewery.name}</Button>
+                            <Modal isOpen={props.addReviewModal} toggle={props.addReviewToggle}>
+                                <ModalHeader toggle={props.addReviewToggle}>Add a review of {props.breweryToReviewName}:</ModalHeader>
+                                <ModalBody>
+                                    <CreateReview breweryId={'http://localhost:8000/api/breweries/' + props.breweryToReviewId} addReview={props.addReview} addReviewToggle={props.addReviewToggle}/>
+                                </ModalBody>
+                            </Modal>
+                        </div>
                     </CardBody>
                     <CardFooter>
+                        <ReviewList
+                            breweryId={brewery.id}
+                            reviews={props.reviews}
+                            deleteReview={props.deleteReview}
+                            showReviewModal={props.showReviewModal}
+                            closeAndEditReview={props.closeAndEditReview}
+                            handleReviewFormChange={props.handleReviewFormChange}
+                            reviewToEdit={props.reviewToEdit}
+                            editReviewModal={props.editReviewModal}
+                            editReviewToggle={props.editReviewToggle}
+                        />
                     </CardFooter>
                 </Card>
-                    <h4>Reviews for {brewery.name}</h4>
-                    <div className="addReviewBtn">
-                        <Button color="primary" onClick={() => props.addReviewToggle(brewery)}>Review {brewery.name}</Button>
-                        <Modal isOpen={props.addReviewModal} toggle={props.addReviewToggle}>
-                            <ModalHeader toggle={props.addReviewToggle}>Add a review of {props.breweryToReviewName}:</ModalHeader>
-                            <ModalBody>
-                                {/* <CreateReview breweryId={'http://localhost:8000/api/breweries/' + brewery.id} addReview={props.addReview} addReviewToggle={props.addReviewToggle}/> */}
-                                <CreateReview breweryId={'http://localhost:8000/api/breweries/' + props.breweryToReviewId} addReview={props.addReview} addReviewToggle={props.addReviewToggle}/>
-                            </ModalBody>
-                        </Modal>
-                    </div>
-                    <br/>
-
-                    <ReviewList
-                        breweryId={brewery.id}
-                        reviews={props.reviews}
-                        deleteReview={props.deleteReview}
-                        showReviewModal={props.showReviewModal}
-                        closeAndEditReview={props.closeAndEditReview}
-                        handleReviewFormChange={props.handleReviewFormChange}
-                        reviewToEdit={props.reviewToEdit}
-                        editReviewModal={props.editReviewModal}
-                        editReviewToggle={props.editReviewToggle}
-                    />
             </div>
         )
     });
