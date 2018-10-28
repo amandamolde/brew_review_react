@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Button, Modal, ModalHeader, ModalBody,
-         ListGroup, ListGroupItem, CardGroup, Card, CardText } from 'reactstrap';
+         ListGroup, ListGroupItem, CardGroup, Card, CardText, } from 'reactstrap';
 import EditReview from '../EditReview/editReview';
 
 const ReviewList = (props) => {

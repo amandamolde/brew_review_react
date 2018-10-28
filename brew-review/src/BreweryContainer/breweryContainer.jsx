@@ -36,6 +36,7 @@ class BreweryContainer extends Component {
             breweryToReviewId: null,
             breweryToReviewName: '',
             collapse: false,
+            breweryToShowReviewsId: null,
         }
         this.addBreweryToggle = this.addBreweryToggle.bind(this);
         this.editBreweryToggle = this.editBreweryToggle.bind(this);
@@ -333,6 +334,7 @@ class BreweryContainer extends Component {
                     breweryToReviewName={this.state.breweryToReviewName}
                     collapse={this.state.collapse}
                     toggleCollapse={this.toggleCollapse}
+                    breweryToShowReviewsId={this.state.breweryToShowReviewsId}
                 />
 
             </div>

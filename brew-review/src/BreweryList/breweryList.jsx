@@ -31,7 +31,7 @@ const BreweryList = (props) => {
                         <hr/>
                         <CardText>{brewery.description}</CardText>
                         <hr/>
-                        <Button color="link" onClick={props.toggleCollapse}>Check out the Reviews!</Button>
+                        <Button color="link" onClick={props.toggleCollapse} >Check out the Reviews!</Button>
                             <Button color="link" onClick={() => props.addReviewToggle(brewery)}>Add a Review</Button>
                             <Modal isOpen={props.addReviewModal} toggle={props.addReviewToggle}>
                                 <ModalHeader toggle={props.addReviewToggle}>Add a review of {props.breweryToReviewName}:</ModalHeader>
@@ -41,7 +41,7 @@ const BreweryList = (props) => {
                             </Modal>
                     </CardBody>
                     <CardFooter>
-                        <Collapse isOpen={props.collapse}>
+                        <Collapse isOpen={props.collapse} >
                             <ReviewList
                                 breweryId={brewery.id}
                                 reviews={props.reviews}
@@ -52,6 +52,7 @@ const BreweryList = (props) => {
                                 reviewToEdit={props.reviewToEdit}
                                 editReviewModal={props.editReviewModal}
                                 editReviewToggle={props.editReviewToggle}
+                                collapse={props.collapse}
                             />
                         </Collapse>
                     </CardFooter>
