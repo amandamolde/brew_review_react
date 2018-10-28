@@ -106,6 +106,7 @@ class CreateBrewery extends Component {
                 <FormGroup>
                     <Label>Photo URL</Label>
                     <Input type="text" name="photo_url" onChange={this.updateBrewery}/>
+                    <FormText>Required</FormText>
                 </FormGroup>
                 <ModalFooter>
                     <Button type="submit" onClick={this.props.addBreweryToggle}>Submit</Button>
