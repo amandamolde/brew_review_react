@@ -22,10 +22,6 @@ const EditReview = (props) => {
                     <Label>Notes</Label>
                     <Input type="textarea" name="notes" onChange={props.handleReviewFormChange} value={props.reviewToEdit.notes}/>
                 </FormGroup>
-                <FormGroup>
-                    <Label>Photo</Label>
-                    <Input type="text" name="photo" onChange={props.handleReviewFormChange}/>
-                </FormGroup>
                 <ModalFooter>
                     <Button type="submit" onClick={props.editReviewToggle}>Submit</Button>
                     <Button color="secondary" onClick={props.editReviewToggle}>Cancel</Button>

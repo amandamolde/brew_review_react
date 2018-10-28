@@ -43,10 +43,6 @@ class CreateReview extends Component {
                     <Label>Notes</Label>
                     <Input type="textarea" name="notes" onChange={this.updateReview}/>
                 </FormGroup>
-                <FormGroup>
-                    <Label>Photo</Label>
-                    <Input type="text" name="photo" onChange={this.updateReview}/>
-                </FormGroup>
                 <ModalFooter>
                     <Button type="submit" onClick={this.props.addReviewToggle}>Submit</Button>
                     <Button color="secondary" onClick={this.props.addReviewToggle}>Cancel</Button>
