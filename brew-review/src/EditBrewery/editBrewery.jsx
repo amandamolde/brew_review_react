@@ -86,6 +86,10 @@ const EditBrewery = (props) => {
                     <Label>Website</Label>
                     <Input type="text" name="website_url" onChange={props.handleFormChange} value={props.breweryToEdit.website_url}/>
                 </FormGroup>
+                <FormGroup>
+                    <Label>Photo URL</Label>
+                    <Input type="text" name="photo_url" onChange={props.handleFormChange} value={props.breweryToEdit.photo_url}/>
+                </FormGroup>
                 <ModalFooter>
                     <Button type="submit" onClick={props.editBreweryToggle}>Submit</Button>
                     <Button type="submit" onClick={props.editBreweryToggle}>Cancel</Button>

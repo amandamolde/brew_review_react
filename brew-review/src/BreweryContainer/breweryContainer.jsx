@@ -18,6 +18,7 @@ class BreweryContainer extends Component {
                 state: '',
                 description: '',
                 website_url: '',
+                photo_url: '',
             },
             showReviewEdit: false,
             editReviewId: null,
@@ -159,6 +160,7 @@ class BreweryContainer extends Component {
                     brewery.state = editResponseJson.state;
                     brewery.description = editResponseJson.description;
                     brewery.website_url = editResponseJson.website_url;
+                    brewery.photo_url = editResponseJson.photo_url;
                 }
                 return brewery;
             });

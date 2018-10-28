@@ -22,7 +22,7 @@ const BreweryList = (props) => {
                             </ModalBody>
                         </Modal>
                     </CardHeader>
-                    <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
+                    <CardImg top width="100%" src={brewery.photo_url} alt="Card image cap" />
                     <CardBody>
                         <CardTitle>{brewery.name}</CardTitle>
                         <CardSubtitle>{brewery.city}, {brewery.state}</CardSubtitle>

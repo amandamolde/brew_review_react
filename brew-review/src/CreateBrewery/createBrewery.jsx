@@ -11,6 +11,7 @@ class CreateBrewery extends Component {
             state: '',
             description: '',
             website_url: '',
+            photo_url: '',
         }
     }
     updateBrewery = (e) => {
@@ -101,6 +102,10 @@ class CreateBrewery extends Component {
                 <FormGroup>
                     <Label>Website</Label>
                     <Input type="text" name="website_url" onChange={this.updateBrewery}/>
+                </FormGroup>
+                <FormGroup>
+                    <Label>Photo URL</Label>
+                    <Input type="text" name="photo_url" onChange={this.updateBrewery}/>
                 </FormGroup>
                 <ModalFooter>
                     <Button type="submit" onClick={this.props.addBreweryToggle}>Submit</Button>
