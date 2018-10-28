@@ -29,16 +29,15 @@ const BreweryList = (props) => {
                         <CardLink href={brewery.website_url}>Website</CardLink>
                         <hr/>
                         <CardText>{brewery.description}</CardText>
-                        <Button>See Reviews</Button>
-                        <div className="addReviewBtn">
-                            <Button color="primary" onClick={() => props.addReviewToggle(brewery)}>Review {brewery.name}</Button>
+                        <hr/>
+                        <Button color="link">Check out the Reviews!</Button>
+                            <Button color="link" onClick={() => props.addReviewToggle(brewery)}>Add a Review</Button>
                             <Modal isOpen={props.addReviewModal} toggle={props.addReviewToggle}>
                                 <ModalHeader toggle={props.addReviewToggle}>Add a review of {props.breweryToReviewName}:</ModalHeader>
                                 <ModalBody>
                                     <CreateReview breweryId={'http://localhost:8000/api/breweries/' + props.breweryToReviewId} addReview={props.addReview} addReviewToggle={props.addReviewToggle}/>
                                 </ModalBody>
                             </Modal>
-                        </div>
                     </CardBody>
                     <CardFooter>
                         <ReviewList
