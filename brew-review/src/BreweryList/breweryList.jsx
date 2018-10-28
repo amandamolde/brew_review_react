@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Button, Modal, ModalHeader, ModalBody, 
-        Card, CardImg, CardTitle, CardText, CardDeck, CardSubtitle, 
+        Card, CardImg, CardTitle, CardText, CardColumns, CardSubtitle, 
         CardBody, CardLink, CardHeader, CardFooter, } from 'reactstrap';
 import ReviewList from '../ReviewList/reviewList';
 import CreateReview from '../CreateReview/createReview';
@@ -10,7 +10,7 @@ const BreweryList = (props) => {
 
     const breweryList = props.breweries.map((brewery, i) => {
         return (
-            <Col sm={6} md={4} className="breweryInfo">
+            <Col className="breweryInfo">
                 <Card key={brewery.id}>
                     <CardHeader>
                         <Button color="link" onClick={props.showModal.bind(null, brewery.id)}>Edit</Button>
@@ -61,9 +61,9 @@ const BreweryList = (props) => {
     return (
         <Container>
             <Row>
-                <CardDeck>
+                <CardColumns>
                     {breweryList}
-                </CardDeck>
+                </CardColumns>
             </Row>
         </Container>
     )
