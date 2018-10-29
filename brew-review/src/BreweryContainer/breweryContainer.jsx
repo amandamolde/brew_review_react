@@ -35,14 +35,11 @@ class BreweryContainer extends Component {
             editReviewModal: false,
             breweryToReviewId: null,
             breweryToReviewName: '',
-            collapse: false,
-            breweryToShowReviewsId: null,
         }
         this.addBreweryToggle = this.addBreweryToggle.bind(this);
         this.editBreweryToggle = this.editBreweryToggle.bind(this);
         this.addReviewToggle = this.addReviewToggle.bind(this);
         this.editReviewToggle = this.editReviewToggle.bind(this);
-        this.toggleCollapse = this.toggleCollapse.bind(this);
     }
 
     addBreweryToggle () {
@@ -71,12 +68,6 @@ class BreweryContainer extends Component {
         });
     }
 
-    toggleCollapse () {
-        this.setState({
-            collapse: !this.state.collapse
-        });
-    }
-    
     componentDidMount() {
         this.getBreweries().then((breweries) => {
             this.setState({ breweries: breweries})
@@ -299,7 +290,7 @@ class BreweryContainer extends Component {
                         <h1>Welcome to Brew Review!</h1>
                         <p>Review and discover breweries</p>
                         <div className="addBreweryBtn">
-                            <Button color="primary" onClick={this.addBreweryToggle}>ADD A BREWERY!</Button>
+                            <Button color="warning" onClick={this.addBreweryToggle}>ADD A BREWERY!</Button>
                             <Modal isOpen={this.state.addBreweryModal} toggle={this.addBreweryToggle}>
                                 <ModalHeader toggle={this.addBreweryToggle}>Add a brewery:</ModalHeader>
                                 <ModalBody>

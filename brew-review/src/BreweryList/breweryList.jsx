@@ -31,30 +31,26 @@ const BreweryList = (props) => {
                         <hr/>
                         <CardText>{brewery.description}</CardText>
                         <hr/>
-                        <Button color="link" onClick={props.toggleCollapse} >Check out the Reviews!</Button>
-                            <Button color="link" onClick={() => props.addReviewToggle(brewery)}>Add a Review</Button>
-                            <Modal isOpen={props.addReviewModal} toggle={props.addReviewToggle}>
-                                <ModalHeader toggle={props.addReviewToggle}>Add a review of {props.breweryToReviewName}:</ModalHeader>
-                                <ModalBody>
-                                    <CreateReview breweryId={'http://localhost:8000/api/breweries/' + props.breweryToReviewId} addReview={props.addReview} addReviewToggle={props.addReviewToggle}/>
-                                </ModalBody>
-                            </Modal>
+                        <Button color="link" onClick={() => props.addReviewToggle(brewery)}>Add a Review</Button>
+                        <Modal isOpen={props.addReviewModal} toggle={props.addReviewToggle}>
+                            <ModalHeader toggle={props.addReviewToggle}>Add a review of {props.breweryToReviewName}:</ModalHeader>
+                            <ModalBody>
+                                <CreateReview breweryId={'http://localhost:8000/api/breweries/' + props.breweryToReviewId} addReview={props.addReview} addReviewToggle={props.addReviewToggle}/>
+                            </ModalBody>
+                        </Modal>
                     </CardBody>
                     <CardFooter>
-                        <Collapse isOpen={props.collapse} >
-                            <ReviewList
-                                breweryId={brewery.id}
-                                reviews={props.reviews}
-                                deleteReview={props.deleteReview}
-                                showReviewModal={props.showReviewModal}
-                                closeAndEditReview={props.closeAndEditReview}
-                                handleReviewFormChange={props.handleReviewFormChange}
-                                reviewToEdit={props.reviewToEdit}
-                                editReviewModal={props.editReviewModal}
-                                editReviewToggle={props.editReviewToggle}
-                                collapse={props.collapse}
-                            />
-                        </Collapse>
+                        <ReviewList
+                            breweryId={brewery.id}
+                            reviews={props.reviews}
+                            deleteReview={props.deleteReview}
+                            showReviewModal={props.showReviewModal}
+                            closeAndEditReview={props.closeAndEditReview}
+                            handleReviewFormChange={props.handleReviewFormChange}
+                            reviewToEdit={props.reviewToEdit}
+                            editReviewModal={props.editReviewModal}
+                            editReviewToggle={props.editReviewToggle}
+                        />
                     </CardFooter>
                 </Card>
             </Col>
