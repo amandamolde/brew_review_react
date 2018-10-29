@@ -1,8 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Button, Modal, ModalHeader, ModalBody, 
         Card, CardImg, CardTitle, CardText, CardColumns, CardSubtitle, 
-        CardBody, CardLink, CardHeader, CardFooter, Collapse,
-         } from 'reactstrap';
+        CardBody, CardLink, CardHeader, } from 'reactstrap';
 import ReviewList from '../ReviewList/reviewList';
 import CreateReview from '../CreateReview/createReview';
 import EditBrewery from '../EditBrewery/editBrewery';
@@ -11,8 +10,8 @@ const BreweryList = (props) => {
 
     const breweryList = props.breweries.map((brewery, i) => {
         return (
-            <Col className="breweryInfo">
-                <Card key={brewery.id}>
+            <Col key={brewery.id} className="breweryInfo">
+                <Card>
                     <CardHeader>
                         <Button color="link" onClick={props.showModal.bind(null, brewery.id)}>Edit</Button>
                         <Button color="link" onClick={props.deleteBrewery.bind(null, brewery.id)}>Delete</Button>
