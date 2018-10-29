@@ -8,18 +8,36 @@ const EditReview = (props) => {
             <Form onSubmit={props.closeAndEditReview}>
                 <FormGroup>
                     <Label>Atmosphere</Label>
-                    <Input type="number" min="1" max="5" name="atmosphere" onChange={props.handleReviewFormChange} value={props.reviewToEdit.atmosphere}/>
-                    <FormText>Required, please pick a number between 1 and 5</FormText>
+                    <Input type="select" name="atmosphere" onChange={props.handleReviewFormChange} value={props.reviewToEdit.atmosphere}>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </Input>
+                    <FormText>Required</FormText>
                 </FormGroup>
                 <FormGroup>
                     <Label>Staff</Label>
-                    <Input type="number" min="1" max="5" name="beer_tenders" onChange={props.handleReviewFormChange} value={props.reviewToEdit.beer_tenders}/>
-                    <FormText>Required, please pick a number between 1 and 5</FormText>
+                    <Input type="select" name="beer_tenders" onChange={props.handleReviewFormChange} value={props.reviewToEdit.beer_tenders}>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </Input>
+                    <FormText>Required</FormText>
                 </FormGroup>
                 <FormGroup>
                     <Label>Selection</Label>
-                    <Input type="number" min="1" max="5" name="beer_selection" onChange={props.handleReviewFormChange} value={props.reviewToEdit.beer_selection}/>
-                    <FormText>Required, please pick a number between 1 and 5</FormText>
+                    <Input type="select" name="beer_selection" onChange={props.handleReviewFormChange} value={props.reviewToEdit.beer_selection}>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </Input>
+                    <FormText>Required</FormText>
                 </FormGroup>
                 <FormGroup>
                     <Label>Notes</Label>

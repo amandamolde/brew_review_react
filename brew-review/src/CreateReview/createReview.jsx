@@ -26,18 +26,39 @@ class CreateReview extends Component {
             <Form onSubmit={this.props.addReview.bind(this, this.state)}>
                 <FormGroup>
                     <Label>Atmosphere</Label>
-                    <Input type="number" min="1" max="5" name="atmosphere" onChange={this.updateReview}/>
-                    <FormText>Required, please pick a number between 1 and 5</FormText>
+                    <Input type="select" name="atmosphere" onChange={this.updateReview}>
+                        <option selected disabled hidden>Select</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </Input>
+                    <FormText>Required</FormText>
                 </FormGroup>
                 <FormGroup>
                     <Label>Staff</Label>
-                    <Input type="number" min="1" max="5" name="beer_tenders" onChange={this.updateReview}/>
-                    <FormText>Required, please pick a number between 1 and 5</FormText>
+                    <Input type="select" name="beer_tenders" onChange={this.updateReview}>
+                        <option selected disabled hidden>Select</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </Input>
+                    <FormText>Required</FormText>
                 </FormGroup>
                 <FormGroup>
                     <Label>Selection</Label>
-                    <Input type="number" min="1" max="5" name="beer_selection" onChange={this.updateReview}/>
-                    <FormText>Required, please pick a number between 1 and 5</FormText>
+                    <Input type="select" name="beer_selection" onChange={this.updateReview}>
+                        <option selected disabled hidden>Select</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </Input>
+                    <FormText>Required</FormText>
                 </FormGroup>
                 <FormGroup>
                     <Label>Notes</Label>
