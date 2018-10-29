@@ -13,7 +13,7 @@ const ReviewList = (props) => {
         if (apiBreweryId === review.brewery) {
 
             return (
-                <Card key={review.id}>
+                <Card key={review.id} className="border-0">
                     <Row>
                         <Col>
                             <CardText>Atmosphere</CardText>

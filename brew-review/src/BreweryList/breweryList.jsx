@@ -26,9 +26,10 @@ const BreweryList = (props) => {
                     <CardImg top width="100%" src={brewery.photo_url} alt="Card image cap" />
                     <CardBody>
                         <CardTitle>{brewery.name}</CardTitle>
-                        <CardSubtitle>{brewery.city}, {brewery.state}</CardSubtitle>
+                        <CardTitle>{brewery.city}, {brewery.state}</CardTitle>
                         <CardLink href={brewery.website_url}>Website</CardLink>
                         <hr/>
+                        <CardSubtitle>Overview</CardSubtitle>
                         <CardText>{brewery.description}</CardText>
                         <hr/>
                         <Button color="link" onClick={() => props.addReviewToggle(brewery)}>Add a Review</Button>
@@ -38,8 +39,9 @@ const BreweryList = (props) => {
                                 <CreateReview breweryId={'http://localhost:8000/api/breweries/' + props.breweryToReviewId} addReview={props.addReview} addReviewToggle={props.addReviewToggle}/>
                             </ModalBody>
                         </Modal>
-                    </CardBody>
-                    <CardFooter>
+                        <hr/>
+                        <CardSubtitle>Reviews</CardSubtitle>
+                        <br/>
                         <ReviewList
                             breweryId={brewery.id}
                             reviews={props.reviews}
@@ -51,7 +53,7 @@ const BreweryList = (props) => {
                             editReviewModal={props.editReviewModal}
                             editReviewToggle={props.editReviewToggle}
                         />
-                    </CardFooter>
+                    </CardBody>
                 </Card>
             </Col>
         )
