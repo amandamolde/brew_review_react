@@ -17,12 +17,24 @@ const ReviewList = (props) => {
                     <Row>
                         <Col>
                             <CardText>Atmosphere</CardText>
-                            <CardText>Beer Tenders</CardText>
-                            <CardText>Beer Selection</CardText>
                         </Col>
                         <Col>
                             <CardText>{review.atmosphere}</CardText>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <CardText>Beer Tenders</CardText>
+                        </Col>
+                        <Col>
                             <CardText>{review.beer_tenders}</CardText>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <CardText>Beer Selection</CardText>
+                        </Col>
+                        <Col>
                             <CardText>{review.beer_selection}</CardText>
                         </Col>
                     </Row>
