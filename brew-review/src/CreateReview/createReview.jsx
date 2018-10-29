@@ -26,18 +26,18 @@ class CreateReview extends Component {
             <Form onSubmit={this.props.addReview.bind(this, this.state)}>
                 <FormGroup>
                     <Label>Atmosphere</Label>
-                    <Input type="text" name="atmosphere" onChange={this.updateReview}/>
-                    <FormText>Required</FormText>
+                    <Input type="number" min="1" max="5" name="atmosphere" onChange={this.updateReview}/>
+                    <FormText>Required, please pick a number between 1 and 5</FormText>
                 </FormGroup>
                 <FormGroup>
                     <Label>Staff</Label>
-                    <Input type="text" name="beer_tenders" onChange={this.updateReview}/>
-                    <FormText>Required</FormText>
+                    <Input type="number" min="1" max="5" name="beer_tenders" onChange={this.updateReview}/>
+                    <FormText>Required, please pick a number between 1 and 5</FormText>
                 </FormGroup>
                 <FormGroup>
                     <Label>Selection</Label>
-                    <Input type="text" name="beer_selection" onChange={this.updateReview}/>
-                    <FormText>Required</FormText>
+                    <Input type="number" min="1" max="5" name="beer_selection" onChange={this.updateReview}/>
+                    <FormText>Required, please pick a number between 1 and 5</FormText>
                 </FormGroup>
                 <FormGroup>
                     <Label>Notes</Label>

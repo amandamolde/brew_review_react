@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, FormGroup, ModalFooter, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, ModalFooter, Label, Input, FormText } from 'reactstrap';
 
 const EditReview = (props) => {
     console.log(props, ' this is props at edit review');
@@ -8,15 +8,18 @@ const EditReview = (props) => {
             <Form onSubmit={props.closeAndEditReview}>
                 <FormGroup>
                     <Label>Atmosphere</Label>
-                    <Input type="text" name="atmosphere" onChange={props.handleReviewFormChange} value={props.reviewToEdit.atmosphere}/>
+                    <Input type="number" min="1" max="5" name="atmosphere" onChange={props.handleReviewFormChange} value={props.reviewToEdit.atmosphere}/>
+                    <FormText>Required, please pick a number between 1 and 5</FormText>
                 </FormGroup>
                 <FormGroup>
                     <Label>Staff</Label>
-                    <Input type="text" name="beer_tenders" onChange={props.handleReviewFormChange} value={props.reviewToEdit.beer_tenders}/>
+                    <Input type="number" min="1" max="5" name="beer_tenders" onChange={props.handleReviewFormChange} value={props.reviewToEdit.beer_tenders}/>
+                    <FormText>Required, please pick a number between 1 and 5</FormText>
                 </FormGroup>
                 <FormGroup>
                     <Label>Selection</Label>
-                    <Input type="text" name="beer_selection" onChange={props.handleReviewFormChange} value={props.reviewToEdit.beer_selection}/>
+                    <Input type="number" min="1" max="5" name="beer_selection" onChange={props.handleReviewFormChange} value={props.reviewToEdit.beer_selection}/>
+                    <FormText>Required, please pick a number between 1 and 5</FormText>
                 </FormGroup>
                 <FormGroup>
                     <Label>Notes</Label>
