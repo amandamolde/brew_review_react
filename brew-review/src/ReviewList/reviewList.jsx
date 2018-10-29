@@ -19,23 +19,23 @@ const ReviewList = (props) => {
                             <CardText>Atmosphere</CardText>
                         </Col>
                         <Col>
-                            <CardText>{review.atmosphere}</CardText>
+                            <CardText>{review.atmosphere} / 5</CardText>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <CardText>Beer Tenders</CardText>
+                            <CardText>Staff</CardText>
                         </Col>
                         <Col>
-                            <CardText>{review.beer_tenders}</CardText>
+                            <CardText>{review.beer_tenders} / 5</CardText>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <CardText>Beer Selection</CardText>
+                            <CardText>Selection</CardText>
                         </Col>
                         <Col>
-                            <CardText>{review.beer_selection}</CardText>
+                            <CardText>{review.beer_selection} / 5</CardText>
                         </Col>
                     </Row>
                     <br/>

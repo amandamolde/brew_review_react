@@ -11,11 +11,11 @@ const EditReview = (props) => {
                     <Input type="text" name="atmosphere" onChange={props.handleReviewFormChange} value={props.reviewToEdit.atmosphere}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label>Beer Tenders</Label>
+                    <Label>Staff</Label>
                     <Input type="text" name="beer_tenders" onChange={props.handleReviewFormChange} value={props.reviewToEdit.beer_tenders}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label>Beer Selection</Label>
+                    <Label>Selection</Label>
                     <Input type="text" name="beer_selection" onChange={props.handleReviewFormChange} value={props.reviewToEdit.beer_selection}/>
                 </FormGroup>
                 <FormGroup>

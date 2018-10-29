@@ -30,12 +30,12 @@ class CreateReview extends Component {
                     <FormText>Required</FormText>
                 </FormGroup>
                 <FormGroup>
-                    <Label>Beer Tenders</Label>
+                    <Label>Staff</Label>
                     <Input type="text" name="beer_tenders" onChange={this.updateReview}/>
                     <FormText>Required</FormText>
                 </FormGroup>
                 <FormGroup>
-                    <Label>Beer Selection</Label>
+                    <Label>Selection</Label>
                     <Input type="text" name="beer_selection" onChange={this.updateReview}/>
                     <FormText>Required</FormText>
                 </FormGroup>
